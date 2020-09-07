@@ -16,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `url('${bg}')`,
     backgroundSize: "cover",
     backgroundPosition: "center center",
+    [theme.breakpoints.up("md")]: {
+      height: 280,
+      paddingTop: 25,
+    },
   },
   container: {
     paddingLeft: 24,
@@ -26,9 +30,15 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 500,
     textAlign: "center",
     marginBottom: 26,
+    [theme.breakpoints.up("md")]: {
+      fontSize: "2rem",
+    },
   },
   search: {
     marginBottom: 24,
+    [theme.breakpoints.up("md")]: {
+      marginBottom: 48,
+    },
   },
 }));
 

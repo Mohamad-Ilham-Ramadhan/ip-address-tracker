@@ -45,14 +45,14 @@ export default function Mapsdf({ className }) {
       zoom={13}
       zoomControl={false}
     >
-      <TileLayer
+      {/* <TileLayer
         url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
         maxZoom={18}
         id="mapbox/streets-v11"
         tileSize={512}
         zoomOffset={-1}
         accessToken="pk.eyJ1IjoibS1pbGhhbS1yIiwiYSI6ImNrZW51MWZxNjB4ZTMzMHFtYXU3M3FqcHEifQ.vgRnsJtC77UBeKVimay9QA"
-      />
+      /> */}
       <Marker icon={markerIcon} position={[51.505, -0.09]}></Marker>
     </Map>
   );

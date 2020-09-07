@@ -13,6 +13,11 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     borderRadius: 16,
     overflow: "hidden",
+    [theme.breakpoints.up("md")]: {
+      width: 565,
+      marginLeft: "auto",
+      marginRight: "auto",
+    },
   },
   input: {
     backgroundColor: "white",
