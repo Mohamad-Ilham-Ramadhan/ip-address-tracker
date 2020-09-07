@@ -51,6 +51,7 @@ export default function Header({
   zip,
   timezone,
   isp,
+  loading,
   onValueChange,
   onSearchSubmit,
 }) {
@@ -74,6 +75,7 @@ export default function Header({
           zip={zip}
           timezone={timezone}
           isp={isp}
+          loading={loading}
         />
       </Container>
     </header>

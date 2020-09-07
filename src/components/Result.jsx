@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -68,12 +69,38 @@ const useStyles = makeStyles((theme) => ({
       transform: "translateY(-50%)",
     },
   },
+  loading: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    "& .MuiCircularProgress-root": {
+      position: "absolute",
+      top: "calc(50% - 40px)", // half of size
+      left: "calc(50% - 40px)", // half of size
+      zIndex: 1000,
+    },
+  },
 }));
 
-export default function Result({ query, region, city, zip, timezone, isp }) {
+export default function Result({
+  query,
+  region,
+  city,
+  zip,
+  timezone,
+  isp,
+  loading,
+}) {
   const styles = useStyles();
   return (
     <Paper className={styles.root} elevation={0}>
+      {loading && (
+        <div className={styles.loading}>
+          <CircularProgress size={80} />
+        </div>
+      )}
       <Grid container>
         <Grid className={styles.gridItem} item xs={12} md={3}>
           <Typography variant="subtitle1" component="h2">
