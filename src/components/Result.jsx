@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
   gridItem: {
     position: "relative",
     marginBottom: 20,
+    wordBreak: "break-all",
     "&:last-child": {
       marginBottom: 0,
     },
@@ -49,7 +50,6 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: 0,
     },
     "&:first-child": {
-      wordBreak: "break-all",
       [theme.breakpoints.up("md")]: {
         paddingLeft: 0,
       },

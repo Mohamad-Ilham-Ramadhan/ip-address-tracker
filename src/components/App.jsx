@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
 export default function App() {
   const styles = useStyles();
   const [query, setQuery] = useState("");
+  const [value, setValue] = useState("");
   const [location, setLocation] = useState([0, 0]);
   const [city, setCity] = useState("");
   const [region, setRegion] = useState("");
@@ -25,6 +26,7 @@ export default function App() {
       const result = response.data;
       setLocation([result.lat, result.lon]);
       setQuery(result.query);
+      setValue(result.query);
       setRegion(result.region);
       setCity(result.city);
       setZip(result.zip);
@@ -32,17 +34,41 @@ export default function App() {
       setIsp(result.isp);
     });
   }, []);
-
+  function onValueChange(e) {
+    setValue(e.target.value);
+  }
+  function onSearchSubmit() {
+    let domain = value
+      .split("/")
+      .filter((str) => str.includes("."))
+      .join();
+    // setLoading(true);
+    axios.get(`http://ip-api.com/json/${domain}`).then((response) => {
+      const result = response.data;
+      setLocation([result.lat, result.lon]);
+      setQuery(result.query);
+      setRegion(result.region);
+      setCity(result.city);
+      setZip(result.zip);
+      setTimezone(result.timezone);
+      setIsp(result.isp);
+      setValue(domain);
+      // setLoading(false);
+    });
+  }
   return (
     <>
       <Header
         className={styles.Header}
         query={query}
+        value={value}
         region={region}
         city={city}
         zip={zip}
         timezone={timezone}
         isp={isp}
+        onValueChange={onValueChange}
+        onSearchSubmit={onSearchSubmit}
       />
       <Map className={styles.Map} location={location} />
     </>

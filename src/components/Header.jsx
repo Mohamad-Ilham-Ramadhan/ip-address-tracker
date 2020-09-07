@@ -45,11 +45,14 @@ const useStyles = makeStyles((theme) => ({
 export default function Header({
   className,
   query,
+  value,
   region,
   city,
   zip,
   timezone,
   isp,
+  onValueChange,
+  onSearchSubmit,
 }) {
   const styles = useStyles();
   return (
@@ -58,7 +61,12 @@ export default function Header({
         <Typography className={styles.h1} variant="h1">
           IP Address Tracker
         </Typography>
-        <Search className={styles.search} query={query} />
+        <Search
+          className={styles.search}
+          value={value}
+          onValueChange={onValueChange}
+          onSearchSubmit={onSearchSubmit}
+        />
         <Result
           query={query}
           region={region}

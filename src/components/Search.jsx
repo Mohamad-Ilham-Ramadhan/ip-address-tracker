@@ -47,12 +47,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Search({ className, query }) {
+export default function Search({
+  className,
+  value,
+  onValueChange,
+  onSearchSubmit,
+}) {
   const styles = useStyles();
+
   return (
     <FormControl className={clsx(styles.root, className)}>
-      <InputBase className={styles.input} value={query} />
-      <ButtonBase className={styles.button} disableRipple>
+      <InputBase
+        className={styles.input}
+        value={value}
+        onChange={(e) => {
+          onValueChange(e);
+        }}
+      />
+      <ButtonBase
+        className={styles.button}
+        onClick={onSearchSubmit}
+        disableRipple
+      >
         <ArrowIcon />
       </ButtonBase>
     </FormControl>
