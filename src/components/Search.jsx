@@ -54,6 +54,11 @@ export default function Search({
   onSearchSubmit,
 }) {
   const styles = useStyles();
+  function onKeyDown(e) {
+    if (e.key == "Enter") {
+      onSearchSubmit();
+    }
+  }
   return (
     <FormControl className={clsx(styles.root, className)}>
       <InputBase
@@ -61,6 +66,9 @@ export default function Search({
         value={value}
         onChange={(e) => {
           onValueChange(e);
+        }}
+        onKeyDown={(e) => {
+          onKeyDown(e);
         }}
       />
       <ButtonBase
