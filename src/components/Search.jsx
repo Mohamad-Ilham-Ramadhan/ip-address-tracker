@@ -28,13 +28,16 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   button: {
-    background: theme.palette.neutral.veryDarkGray,
+    background: "black",
     width: 72,
     display: "inline-flex",
     justifyContent: "center",
     alignItems: "center",
     "& path": {
       transform: "translate(5px, 5px)",
+    },
+    "&:hover": {
+      background: theme.palette.neutral.veryDarkGray,
     },
   },
 }));
@@ -44,7 +47,7 @@ export default function Search({ className }) {
   return (
     <FormControl className={clsx(styles.root, className)}>
       <InputBase className={styles.input} />
-      <ButtonBase className={styles.button}>
+      <ButtonBase className={styles.button} disableRipple>
         <ArrowIcon />
       </ButtonBase>
     </FormControl>
