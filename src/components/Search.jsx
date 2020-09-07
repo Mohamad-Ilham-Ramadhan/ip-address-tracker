@@ -54,7 +54,6 @@ export default function Search({
   onSearchSubmit,
 }) {
   const styles = useStyles();
-
   return (
     <FormControl className={clsx(styles.root, className)}>
       <InputBase
