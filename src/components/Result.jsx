@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Result() {
+export default function Result({ query, region, city, zip, timezone, isp }) {
   const styles = useStyles();
   return (
     <Paper className={styles.root} elevation={0}>
@@ -79,28 +79,28 @@ export default function Result() {
           <Typography variant="subtitle1" component="h2">
             ip address
           </Typography>
-          <Typography>192.212.174.101</Typography>
+          <Typography>{query}</Typography>
           <Divider className={styles.divider} />
         </Grid>
         <Grid className={styles.gridItem} item xs={12} md={3}>
           <Typography variant="subtitle1" component="h2">
             location
           </Typography>
-          <Typography>Brooklyn, NY 10001</Typography>
+          <Typography>{`${city}, ${region} ${zip}`}</Typography>
           <Divider className={styles.divider} />
         </Grid>
         <Grid className={styles.gridItem} item xs={12} md={3}>
           <Typography variant="subtitle1" component="h2">
             timezone
           </Typography>
-          <Typography>Eastern Daylight Time</Typography>
+          <Typography>{timezone}</Typography>
           <Divider className={styles.divider} />
         </Grid>
         <Grid className={styles.gridItem} item xs={12} md={3}>
           <Typography variant="subtitle1" component="h2">
             isp
           </Typography>
-          <Typography>SpaceX Starlink</Typography>
+          <Typography>{isp}</Typography>
         </Grid>
       </Grid>
     </Paper>

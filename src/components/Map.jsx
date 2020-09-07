@@ -36,24 +36,24 @@ const markerIcon = L.icon({
 //   icon: markerIcon,
 // }).addTo(mymap);
 
-export default function Mapsdf({ className }) {
+export default function Mapsdf({ className, location }) {
   const styles = useStyles();
   return (
     <Map
       className={styles.root}
-      center={[51.505, -0.09]}
+      center={location}
       zoom={13}
       zoomControl={false}
     >
-      {/* <TileLayer
+      <TileLayer
         url="https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
         maxZoom={18}
         id="mapbox/streets-v11"
         tileSize={512}
         zoomOffset={-1}
         accessToken="pk.eyJ1IjoibS1pbGhhbS1yIiwiYSI6ImNrZW51MWZxNjB4ZTMzMHFtYXU3M3FqcHEifQ.vgRnsJtC77UBeKVimay9QA"
-      /> */}
-      <Marker icon={markerIcon} position={[51.505, -0.09]}></Marker>
+      />
+      <Marker icon={markerIcon} position={location}></Marker>
     </Map>
   );
 }

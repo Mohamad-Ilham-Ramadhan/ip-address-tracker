@@ -47,11 +47,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Search({ className }) {
+export default function Search({ className, query }) {
   const styles = useStyles();
   return (
     <FormControl className={clsx(styles.root, className)}>
-      <InputBase className={styles.input} />
+      <InputBase className={styles.input} value={query} />
       <ButtonBase className={styles.button} disableRipple>
         <ArrowIcon />
       </ButtonBase>

@@ -42,7 +42,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header({ className }) {
+export default function Header({
+  className,
+  query,
+  region,
+  city,
+  zip,
+  timezone,
+  isp,
+}) {
   const styles = useStyles();
   return (
     <header className={clsx(styles.root, className)}>
@@ -50,8 +58,15 @@ export default function Header({ className }) {
         <Typography className={styles.h1} variant="h1">
           IP Address Tracker
         </Typography>
-        <Search className={styles.search} />
-        <Result />
+        <Search className={styles.search} query={query} />
+        <Result
+          query={query}
+          region={region}
+          city={city}
+          zip={zip}
+          timezone={timezone}
+          isp={isp}
+        />
       </Container>
     </header>
   );
