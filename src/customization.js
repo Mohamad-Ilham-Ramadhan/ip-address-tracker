@@ -48,5 +48,12 @@ const customizedTheme = createMuiTheme({
 customizedTheme.typography.h1 = {
   fontSize: "1.6rem",
 };
+customizedTheme.overrides.MuiContainer = {
+  maxWidthLg: {
+    [customizedTheme.breakpoints.up("md")]: {
+      maxWidth: 1150,
+    },
+  },
+};
 
 export default customizedTheme;
