@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 16,
     position: "relative",
     zIndex: 100,
-    padding: [24, 0],
+    padding: 24,
 
     "& h2": {
       fontWeight: 700,
