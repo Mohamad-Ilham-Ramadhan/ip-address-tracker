@@ -55,7 +55,7 @@ export default function App() {
           setRegion(result.region);
           setCity(result.city);
           // setZip(result.zip); // ip-api
-          setZip(result.postal);
+          setZip(result.postal == null ? "" : result.postal);
           setTimezone(result.timezone);
           // setIsp(result.isp); // ip-api
           setIsp(result.org);
