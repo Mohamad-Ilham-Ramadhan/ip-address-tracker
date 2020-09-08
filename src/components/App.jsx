@@ -40,18 +40,25 @@ export default function App() {
       .join();
     domain = domain == "" ? ipOrDomain : domain;
     axios
-      .get(`http://ip-api.com/json/${domain}`)
+      // .get(`http://ip-api.com/json/${domain}`) // Kalo pake localhost soalnya masih http
+      .get(`https://ipapi.co/${domain}/json/`)
       .then((response) => {
         const result = response.data;
-        if (result.status == "success") {
-          setLocation([result.lat, result.lon]);
-          setQuery(result.query);
-          setValue(result.query);
+        // if (result.status == "success") { // ip-api
+        if (!result.error) {
+          // setLocation([result.lat, result.lon]); // ip-api
+          setLocation([result.latitude, result.longitude]);
+          // setQuery(result.query); // ip-api
+          setQuery(result.ip);
+          // setValue(result.query; // ip-api
+          setValue(result.ip);
           setRegion(result.region);
           setCity(result.city);
-          setZip(result.zip);
+          // setZip(result.zip); // ip-api
+          setZip(result.postal);
           setTimezone(result.timezone);
-          setIsp(result.isp);
+          // setIsp(result.isp); // ip-api
+          setIsp(result.org);
           setLoading(false);
         } else {
           setAlert(true);
